@@ -1,4 +1,4 @@
+public interface BombInterface {
 
-public interface Bombinterface {
-
+	void addError(Error valor);
 }

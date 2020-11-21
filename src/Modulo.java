@@ -1,57 +1,70 @@
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
-public class Modulo implements ModuleInterface{
+public class Modulo implements ModuleInterface {
 
-	 private int qtdAtivacoes;
-	 
+	private int qtdAtivacoes;
+	private ArrayList<Enigma> enigma = new ArrayList();
+
+	public void addEnigma(Enigma valor) {
+		this.enigma.add(valor);
+	}
+	
+	
+	public void setQtdAtivacoes(int qtdAtivacoes) {
+		this.qtdAtivacoes = qtdAtivacoes;
+	}
+
 	@Override
 	public int getActivations() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.qtdAtivacoes;
 	}
 
 	@Override
 	public int getExecutions(int enigma) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < this.enigma.size(); i++) {
+			if(i == enigma) {
+				return this.enigma.get(i).getQtdUso();
+			}	
+		}
 		return 0;
 	}
 
 	@Override
 	public int getRightAnswers(int enigma) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < this.enigma.size(); i++) {
+			if(i == enigma) {
+				return this.enigma.get(i).getQtdAcertos();
+			}	
+		}
 		return 0;
 	}
 
 	@Override
 	public int getWrongAnswers(int enigma) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < this.enigma.size(); i++) {
+			if(i == enigma) {
+				return this.enigma.get(i).getQtdErros();
+			}	
+		}
 		return 0;
 	}
 
 	@Override
 	public boolean isDefused() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void attach(Bombinterface b) {
-		// TODO Auto-generated method stub
-		
+		return this.getActivations() == 5;
 	}
 
 	@Override
 	public JPanel getModulePanel(int enigma) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int getQtdAtivacoes() {
-		return qtdAtivacoes;
-	}
+	@Override
+	public void attach(BombInterface b) {
+		// TODO Auto-generated method stub
 
-	public void setQtdAtivacoes(int qtdAtivacoes) {
-		this.qtdAtivacoes = qtdAtivacoes;
 	}
-
+	
 }
