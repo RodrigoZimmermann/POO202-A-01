@@ -3,24 +3,23 @@ package InterfaceComUsuario;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
-import javax.swing.JSeparator;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SpinnerNumberModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import BLL.Modulo;
+import BLL.Enigma;
 
 public class Enigma01 {
-
+	
+	Enigma enigma = new Enigma();
+	
 	private JFrame frame;
 
 	/**
@@ -44,6 +43,7 @@ public class Enigma01 {
 	 */
 	public Enigma01() {
 		initialize();
+		enigma.setQtdUso(1); //Aumenta em 1 a contagem de quantas vezes o método foi usado
 	}
 
 	/**
@@ -169,21 +169,51 @@ public class Enigma01 {
 
 		JButton btnNewButton = new JButton("Salvar");
 		btnNewButton.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 				if (!(cbSeis.getSelectedIndex() == 6)) {
-					
+					setLed();
+					enigma.setQtdErros(1);
 				} else if (!(cbDez.getSelectedIndex() == 10)) {
-					rbtnLed.setBackground(Color.red);
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbTres.getSelectedIndex() == 3)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbUm.getSelectedIndex() == 1)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbNove.getSelectedIndex() == 9)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbOito.getSelectedIndex() == 8)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbDois.getSelectedIndex() == 2)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbCinco.getSelectedIndex() == 5)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbQuatro.getSelectedIndex() == 4)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else if (!(cbSete.getSelectedIndex() == 7)) {
+					setLed();
+					enigma.setQtdErros(1);
+				} else {
+					rbtnLed.setBackground(Color.green);
 					rbtnLed.setSelected(true);
+					enigma.setQtdAcertos(1);
 				}
 			}
+
+			private void setLed() {
+				rbtnLed.setBackground(Color.red);
+				rbtnLed.setSelected(true);
+			}
 		});
-		
-		private void setLed() {
-			rbtnLed.setBackground(Color.red);
-			rbtnLed.setSelected(true);
-		}
-		
+
 		btnNewButton.setBounds(312, 36, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 	}

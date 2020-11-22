@@ -1,3 +1,4 @@
+package BLL;
 
 public class Enigma {
 	private int qtdUso;

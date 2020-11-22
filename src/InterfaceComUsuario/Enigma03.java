@@ -76,7 +76,7 @@ public class Enigma03 {
 		JButton btnNewButton = new JButton("Salvar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(rbtnFalso.isSelected()) {
+				if(rbtnVerdadeiro.isSelected()) {
 					rbtnLed.setBackground(Color.green);
 					rbtnLed.setSelected(true);
 				} else {

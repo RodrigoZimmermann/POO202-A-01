@@ -1,3 +1,4 @@
+package BLL;
 import java.util.ArrayList;
 
 public class Bomba implements BombInterface {
