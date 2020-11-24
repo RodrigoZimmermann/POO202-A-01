@@ -1,18 +1,27 @@
 package BLL;
-import java.util.ArrayList;
 
 import javax.swing.JPanel;
+import InterfaceComUsuario.Enigma01;
+import InterfaceComUsuario.Enigma02;
+import InterfaceComUsuario.Enigma03;
+import InterfaceComUsuario.Enigma04;
+import InterfaceComUsuario.Enigma05;
+import InterfaceComUsuario.Enigma06;
 
 public class Modulo implements ModuleInterface {
 
 	private int qtdAtivacoes;
-	private int enigma[] = new int[5];
+	private Enigma enigma[] = new Enigma[5];
 
-	public void addEnigma(Enigma valor) {
-		this.enigma.add(valor);
+	public Modulo() {
+		enigma[0] = new Enigma01();
+		enigma[1] = new Enigma02();
+		enigma[2] = new Enigma03();
+		enigma[3] = new Enigma04();
+		enigma[4] = new Enigma05();
+		enigma[5] = new Enigma06();
 	}
-	
-	
+
 	public void setQtdAtivacoes(int qtdAtivacoes) {
 		this.qtdAtivacoes = qtdAtivacoes;
 	}
@@ -24,30 +33,30 @@ public class Modulo implements ModuleInterface {
 
 	@Override
 	public int getExecutions(int enigma) {
-		for (int i = 0; i < this.enigma.size(); i++) {
-			if(i == enigma) {
-				return this.enigma.get(i).getQtdUso();
-			}	
+		for (int i = 0; i < this.enigma.length; i++) {
+			if (i == enigma) {
+				return this.enigma[i].getQtdUso();
+			}
 		}
 		return 0;
 	}
 
 	@Override
 	public int getRightAnswers(int enigma) {
-		for (int i = 0; i < this.enigma.size(); i++) {
-			if(i == enigma) {
-				return this.enigma.get(i).getQtdAcertos();
-			}	
+		for (int i = 0; i < this.enigma.length; i++) {
+			if (i == enigma) {
+				return this.enigma[i].getQtdAcertos();
+			}
 		}
 		return 0;
 	}
 
 	@Override
 	public int getWrongAnswers(int enigma) {
-		for (int i = 0; i < this.enigma.size(); i++) {
-			if(i == enigma) {
-				return this.enigma.get(i).getQtdErros();
-			}	
+		for (int i = 0; i < this.enigma.length; i++) {
+			if (i == enigma) {
+				return this.enigma[i].getQtdErros();
+			}
 		}
 		return 0;
 	}
@@ -67,5 +76,5 @@ public class Modulo implements ModuleInterface {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 }

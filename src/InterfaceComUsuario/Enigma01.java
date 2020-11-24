@@ -16,25 +16,23 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import BLL.Enigma;
 
+
 public class Enigma01 extends Enigma {
-	
+
 	/**
-	 * Create the application.
+	 * Create the panel.
 	 */
 	public Enigma01() {
 		initialize();
-		this.setQtdUso(1); //Aumenta em 1 a contagem de quantas vezes o método foi usado
+		this.addQtdUso();
 	}
-
-	/**
-	 * Initialize the contents of the panel.
-	 */
+	
 	private void initialize() {
 		panel = new JPanel();
 		panel.setBounds(100, 100, 450, 348);
-		//setDefaultCloseOperation(JPanel.EXIT_ON_CLOSE);
+		//JPanelsetDefaultCloseOperation(JPanelEXIT_ON_CLOSE);
 		panel.setLayout(null);
-
+		
 		JLabel lblNewLabel = new JLabel("Relacione as colunas considerando o seguinte esquema:");
 		lblNewLabel.setBounds(10, 11, 359, 14);
 		panel.add(lblNewLabel);
@@ -153,38 +151,38 @@ public class Enigma01 extends Enigma {
 			public void actionPerformed(ActionEvent arg0) {
 				if (!(cbSeis.getSelectedIndex() == 6)) {
 					setLed();
-					this.setQtdErros();
+					addQtdErros();
 				} else if (!(cbDez.getSelectedIndex() == 10)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbTres.getSelectedIndex() == 3)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbUm.getSelectedIndex() == 1)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbNove.getSelectedIndex() == 9)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbOito.getSelectedIndex() == 8)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbDois.getSelectedIndex() == 2)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbCinco.getSelectedIndex() == 5)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbQuatro.getSelectedIndex() == 4)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else if (!(cbSete.getSelectedIndex() == 7)) {
 					setLed();
-					this.setQtdErros(1);
+					addQtdErros();
 				} else {
 					rbtnLed.setBackground(Color.green);
 					rbtnLed.setSelected(true);
-					this.setQtdAcertos(1);
+					addQtdAcertos();
 				}
 			}
 
@@ -197,4 +195,5 @@ public class Enigma01 extends Enigma {
 		btnNewButton.setBounds(312, 36, 89, 23);
 		panel.add(btnNewButton);
 	}
+
 }
