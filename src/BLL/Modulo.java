@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 public class Modulo implements ModuleInterface {
 
 	private int qtdAtivacoes;
-	private ArrayList<Enigma> enigma = new ArrayList();
+	private int enigma[] = new int[5];
 
 	public void addEnigma(Enigma valor) {
 		this.enigma.add(valor);
