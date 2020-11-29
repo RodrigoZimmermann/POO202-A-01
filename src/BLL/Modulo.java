@@ -1,5 +1,7 @@
 package BLL;
 
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 import InterfaceComUsuario.Enigma01;
 import InterfaceComUsuario.Enigma02;
@@ -11,7 +13,7 @@ import InterfaceComUsuario.Enigma06;
 public class Modulo implements ModuleInterface {
 
 	private int qtdAtivacoes;
-	private Enigma enigma[] = new Enigma[5];
+	private Enigma enigma[] = new Enigma[6];
 
 	public Modulo() {
 		enigma[0] = new Enigma01();
@@ -22,8 +24,8 @@ public class Modulo implements ModuleInterface {
 		enigma[5] = new Enigma06();
 	}
 
-	public void setQtdAtivacoes(int qtdAtivacoes) {
-		this.qtdAtivacoes = qtdAtivacoes;
+	public void addQtdAtivacoes() {
+		this.qtdAtivacoes++;
 	}
 
 	@Override
@@ -63,18 +65,36 @@ public class Modulo implements ModuleInterface {
 
 	@Override
 	public boolean isDefused() {
-		return this.getActivations() == 5;
+		if (enigma[0].getDefused() == true) {
+			return true;
+		} else if (enigma[1].getDefused() == true) {
+			return true;
+		} else if (enigma[2].getDefused() == true) {
+			return true;
+		} else if (enigma[3].getDefused() == true) {
+			return true;
+		} else if (enigma[4].getDefused() == true) {
+			return true;
+		} else if (enigma[5].getDefused() == true) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public JPanel getModulePanel(int enigma) {
+		for (int i = 0; i < this.enigma.length; i++) {
+			if (i == enigma) {
+				return this.enigma[i].getPanel();
+			}
+		}
 		return null;
 	}
-
+	
+	
+// Precisa verificar para que serve esse método e como usar ele
 	@Override
 	public void attach(BombInterface b) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

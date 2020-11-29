@@ -63,11 +63,12 @@ public class Enigma02 extends Enigma {
 					rbtnLed.setBackground(Color.green);
 					rbtnLed.setSelected(true);
 					addQtdAcertos();
-
+					setDefused(true);
 				} else {
 					rbtnLed.setBackground(Color.red);
 					rbtnLed.setSelected(true);
 					addQtdErros();
+					setDefused(false);
 				}
 			}
 		});

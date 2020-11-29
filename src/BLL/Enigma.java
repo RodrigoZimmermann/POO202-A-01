@@ -8,6 +8,7 @@ public class Enigma {
 	private int qtdErros;
 	private int qtdAcertos;
 	protected JPanel panel;
+	protected boolean defused = false;
 
 	public int getQtdErros() {
 		return qtdErros;
@@ -36,5 +37,12 @@ public class Enigma {
 	public JPanel getPanel() {
 		return panel;
 	}
+	
+	public boolean getDefused() {
+		return defused;
+	}
 
+	public void setDefused(boolean defused) {
+		this.defused = defused;
+	}
 }

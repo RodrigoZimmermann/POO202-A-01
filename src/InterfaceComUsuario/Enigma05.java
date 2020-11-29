@@ -5,11 +5,12 @@ import BLL.Enigma;
 
 public class Enigma05 extends Enigma {
 
-	/**
-	 * Create the panel.
-	 */
 	public Enigma05() {
+		initialize();
+		this.addQtdUso();
+	}
 
+	private void initialize() {
 	}
 
 }

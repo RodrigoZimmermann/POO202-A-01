@@ -152,37 +152,48 @@ public class Enigma01 extends Enigma {
 				if (!(cbSeis.getSelectedIndex() == 6)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbDez.getSelectedIndex() == 10)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbTres.getSelectedIndex() == 3)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbUm.getSelectedIndex() == 1)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbNove.getSelectedIndex() == 9)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbOito.getSelectedIndex() == 8)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbDois.getSelectedIndex() == 2)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbCinco.getSelectedIndex() == 5)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbQuatro.getSelectedIndex() == 4)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else if (!(cbSete.getSelectedIndex() == 7)) {
 					setLed();
 					addQtdErros();
+					setDefused(false);
 				} else {
 					rbtnLed.setBackground(Color.green);
 					rbtnLed.setSelected(true);
 					addQtdAcertos();
+					setDefused(true);
 				}
 			}
 
@@ -190,10 +201,13 @@ public class Enigma01 extends Enigma {
 				rbtnLed.setBackground(Color.red);
 				rbtnLed.setSelected(true);
 			}
+			
 		});
 
 		btnNewButton.setBounds(312, 36, 89, 23);
 		panel.add(btnNewButton);
 	}
+
+
 
 }
