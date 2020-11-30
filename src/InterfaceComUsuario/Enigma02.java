@@ -10,6 +10,8 @@ import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+
 import BLL.Enigma;
 
 public class Enigma02 extends Enigma {
@@ -52,8 +54,13 @@ public class Enigma02 extends Enigma {
 		dtrpnRascunho.setBounds(10, 128, 414, 122);
 		panel.add(dtrpnRascunho);
 		
+		JScrollPane scroll = new JScrollPane(dtrpnRascunho);
+		scroll.setBounds(10, 128, 414, 122);
+		panel.add(scroll);
+		
 		JRadioButton rbtnLed = new JRadioButton("");
 		rbtnLed.setBounds(403, 2, 21, 23);
+		rbtnLed.setEnabled(false);
 		panel.add(rbtnLed);
 		
 		JButton btnNewButton = new JButton("Salvar");
@@ -70,6 +77,7 @@ public class Enigma02 extends Enigma {
 					addQtdErros();
 					setDefused(false);
 				}
+				btnNewButton.setEnabled(false);
 			}
 		});
 		btnNewButton.setBounds(298, 98, 89, 23);

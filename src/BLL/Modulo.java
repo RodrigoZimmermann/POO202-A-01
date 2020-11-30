@@ -1,7 +1,5 @@
 package BLL;
 
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
 import InterfaceComUsuario.Enigma01;
 import InterfaceComUsuario.Enigma02;

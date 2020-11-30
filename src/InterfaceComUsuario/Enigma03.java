@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
 import BLL.Enigma;
@@ -35,18 +36,23 @@ public class Enigma03 extends Enigma {
 		JRadioButton rbtnFalso = new JRadioButton("Falsa");
 		rbtnFalso.setBounds(121, 89, 109, 23);
 		panel.add(rbtnFalso);
-
+		
 		ButtonGroup bgResposta = new ButtonGroup();
 		bgResposta.add(rbtnVerdadeiro);
 		bgResposta.add(rbtnFalso);
 
 		JTextPane txtpnRascunho = new JTextPane();
 		txtpnRascunho.setText("Rascunho:");
-		txtpnRascunho.setBounds(10, 119, 414, 134);
+		txtpnRascunho.setBounds(10, 119, 390, 134);
 		panel.add(txtpnRascunho);
+		
+		JScrollPane scroll = new JScrollPane(txtpnRascunho);
+		scroll.setBounds(10, 119, 390, 134);
+		panel.add(scroll);
 
 		JRadioButton rbtnLed = new JRadioButton("");
 		rbtnLed.setBounds(403, 7, 21, 23);
+		rbtnLed.setEnabled(false);
 		panel.add(rbtnLed);
 
 		JButton btnNewButton = new JButton("Salvar");
@@ -55,12 +61,15 @@ public class Enigma03 extends Enigma {
 				if (rbtnVerdadeiro.isSelected()) {
 					rbtnLed.setBackground(Color.green);
 					rbtnLed.setSelected(true);
+					addQtdAcertos();
 					setDefused(true);
 				} else {
 					rbtnLed.setBackground(Color.red);
 					rbtnLed.setSelected(true);
+					addQtdErros();
 					setDefused(false);
 				}
+				btnNewButton.setEnabled(false);
 			}
 		});
 

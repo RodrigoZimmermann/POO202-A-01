@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
@@ -79,6 +80,10 @@ public class Enigma01 extends Enigma {
 				"(1) O carro \u00E9 caro\r\n(2) O carro n\u00E3o \u00E9 caro\r\n(3) O carro \u00E9 caro e n\u00E3o \u00E9 quebrado\r\n(4) N\u00E3o \u00E9 verdade que o carro \u00E9 caro ou quebrado\r\n(5) O carro \u00E9 caro ou n\u00E3o \u00E9 quebrado\r\n(6) O carro n\u00E3o \u00E9 caro e n\u00E3o \u00E9 quebrado\r\n(7) O carro \u00E9 caro ou quebrado, mas \u00E9 r\u00E1pido\r\n(8) O carro \u00E9 quebrado ou n\u00E3o \u00E9 r\u00E1pido\r\n(9) Se o carro \u00E9 caro, ent\u00E3o \u00E9 quebrado\r\n(10) Se o carro \u00E9 caro, \u00E9 quebrado ou \u00E9 r\u00E1pido");
 		txtpnOCarro.setBounds(21, 100, 259, 191);
 		panel.add(txtpnOCarro);
+		
+		JScrollPane scroll = new JScrollPane(txtpnOCarro);
+		scroll.setBounds(21, 100, 259, 191);
+		panel.add(scroll);
 
 		JEditorPane dtrpnCO = new JEditorPane();
 		dtrpnCO.setBackground(Color.LIGHT_GRAY);
@@ -86,9 +91,14 @@ public class Enigma01 extends Enigma {
 		dtrpnCO.setText("C = O carro \u00E9 caro\r\nQ = O carro esta quebrado\r\nR = O carro \u00E9 r\u00E1pido");
 		dtrpnCO.setBounds(20, 37, 259, 53);
 		panel.add(dtrpnCO);
-
+		/*
+		JScrollPane scroll_2 = new JScrollPane(dtrpnCO);
+		scroll_2.setBounds(20, 37, 259, 53);
+		panel.add(scroll_2);
+		 */
 		JRadioButton rbtnLed = new JRadioButton("");
 		rbtnLed.setBounds(403, 7, 21, 23);
+		rbtnLed.setEnabled(false);
 		panel.add(rbtnLed);
 
 		JLabel lblNewLabel_13_1_1 = new JLabel("(C v Q) ^ R");
@@ -149,43 +159,44 @@ public class Enigma01 extends Enigma {
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				if (!(cbSeis.getSelectedIndex() == 6)) {
+				System.out.println(cbSeis.getSelectedIndex() );
+				if (!(cbSeis.getSelectedIndex() == 5)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbDez.getSelectedIndex() == 10)) {
+				} else if (!(cbDez.getSelectedIndex() == 9)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbTres.getSelectedIndex() == 3)) {
+				} else if (!(cbTres.getSelectedIndex() == 2)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbUm.getSelectedIndex() == 1)) {
+				} else if (!(cbUm.getSelectedIndex() == 0)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbNove.getSelectedIndex() == 9)) {
+				} else if (!(cbNove.getSelectedIndex() == 8)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbOito.getSelectedIndex() == 8)) {
+				} else if (!(cbOito.getSelectedIndex() == 7)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbDois.getSelectedIndex() == 2)) {
+				} else if (!(cbDois.getSelectedIndex() == 1)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbCinco.getSelectedIndex() == 5)) {
+				} else if (!(cbCinco.getSelectedIndex() == 4)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbQuatro.getSelectedIndex() == 4)) {
+				} else if (!(cbQuatro.getSelectedIndex() == 3)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
-				} else if (!(cbSete.getSelectedIndex() == 7)) {
+				} else if (!(cbSete.getSelectedIndex() == 6)) {
 					setLed();
 					addQtdErros();
 					setDefused(false);
@@ -195,6 +206,7 @@ public class Enigma01 extends Enigma {
 					addQtdAcertos();
 					setDefused(true);
 				}
+				btnNewButton.setEnabled(false);
 			}
 
 			private void setLed() {

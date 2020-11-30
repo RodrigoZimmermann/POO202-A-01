@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 
-public class BombaTeste {
+public class ModuloBomba extends Modulo {
 
 	private JFrame frame;
 
@@ -22,7 +22,7 @@ public class BombaTeste {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BombaTeste window = new BombaTeste();
+					ModuloBomba window = new ModuloBomba();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +34,7 @@ public class BombaTeste {
 	/**
 	 * Create the application.
 	 */
-	public BombaTeste() {
+	public ModuloBomba() {
 		initialize();
 	}
 
@@ -45,18 +45,17 @@ public class BombaTeste {
 		frame = new JFrame();
 		frame.isMaximumSizeSet();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		Modulo modulo = new Modulo();
-		modulo.addQtdAtivacoes();
+	
+		addQtdAtivacoes();
 
 		// enigma01 = 0 enigma02 = 1 enigma03 = 2 enigma04 = 3 enigma05 = 4 engima06 = 5
 
 		JButton btnNewButton = new JButton("Testar Estatisticas");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				 JOptionPane.showMessageDialog(null,"Execuções: " + modulo.getExecutions(1) +" "
-				 + "Acertor: " + modulo.getRightAnswers(1) +" "+ "Erros: " + modulo.getWrongAnswers(1) +" "
-				  + "Está defusado: "+ modulo.isDefused());
+				 JOptionPane.showMessageDialog(null,"Execuções: " + getExecutions(3) +" "
+				 + "Acertos: " + getRightAnswers(3) +" "+ "Erros: " + getWrongAnswers(3) +" "
+				  + "Está defusado: "+ isDefused());
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -64,6 +63,6 @@ public class BombaTeste {
 		frame.getContentPane().add(btnNewButton);
 		
 		// Pegar o PANEL 
-		frame.getContentPane().add(modulo.getModulePanel(1));
+		frame.getContentPane().add(getModulePanel(3));
 	}
 }
