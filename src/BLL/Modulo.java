@@ -7,12 +7,15 @@ import InterfaceComUsuario.Enigma03;
 import InterfaceComUsuario.Enigma04;
 import InterfaceComUsuario.Enigma05;
 import InterfaceComUsuario.Enigma06;
+import poointerfaces.BombInterface;
+import poointerfaces.ModuleInterface;
 
 public class Modulo implements ModuleInterface {
 
-	private int qtdAtivacoes;
+	protected int qtdAtivacoes = 0 ;
 	private Enigma enigma[] = new Enigma[6];
-
+	//private BombInterface b;
+	
 	public Modulo() {
 		enigma[0] = new Enigma01();
 		enigma[1] = new Enigma02();
@@ -22,8 +25,9 @@ public class Modulo implements ModuleInterface {
 		enigma[5] = new Enigma06();
 	}
 
-	public void addQtdAtivacoes() {
-		this.qtdAtivacoes++;
+	@Override
+	public void attach(BombInterface arg0) {
+		//this.b = arg0;
 	}
 
 	@Override
@@ -32,9 +36,9 @@ public class Modulo implements ModuleInterface {
 	}
 
 	@Override
-	public int getExecutions(int enigma) {
+	public int getExecutions(int arg0) {
 		for (int i = 0; i < this.enigma.length; i++) {
-			if (i == enigma) {
+			if (i == arg0) {
 				return this.enigma[i].getQtdUso();
 			}
 		}
@@ -42,9 +46,19 @@ public class Modulo implements ModuleInterface {
 	}
 
 	@Override
-	public int getRightAnswers(int enigma) {
+	public JPanel getModulePanel(int arg0) {
 		for (int i = 0; i < this.enigma.length; i++) {
-			if (i == enigma) {
+			if (i == arg0) {
+				return this.enigma[i].getPanel();
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public int getRightAnswers(int arg0) {
+		for (int i = 0; i < this.enigma.length; i++) {
+			if (i == arg0) {
 				return this.enigma[i].getQtdAcertos();
 			}
 		}
@@ -52,9 +66,9 @@ public class Modulo implements ModuleInterface {
 	}
 
 	@Override
-	public int getWrongAnswers(int enigma) {
+	public int getWrongAnswers(int arg0) {
 		for (int i = 0; i < this.enigma.length; i++) {
-			if (i == enigma) {
+			if (i == arg0) {
 				return this.enigma[i].getQtdErros();
 			}
 		}
@@ -77,22 +91,6 @@ public class Modulo implements ModuleInterface {
 			return true;
 		}
 		return false;
-	}
-
-	@Override
-	public JPanel getModulePanel(int enigma) {
-		for (int i = 0; i < this.enigma.length; i++) {
-			if (i == enigma) {
-				return this.enigma[i].getPanel();
-			}
-		}
-		return null;
-	}
-	
-	
-// Precisa verificar para que serve esse método e como usar ele
-	@Override
-	public void attach(BombInterface b) {
 	}
 
 }

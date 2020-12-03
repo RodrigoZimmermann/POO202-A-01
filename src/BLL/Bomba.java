@@ -1,14 +1,22 @@
 package BLL;
 
-import java.util.ArrayList;
+import java.nio.file.Path;
+import poointerfaces.BombInterface;
 
 public class Bomba implements BombInterface {
 
-	private ArrayList<Error> error = new ArrayList();
+	private int error;
 
 	@Override
-	public void addError(Error valor) {
-		this.error.add(valor);
+	public void addError() {
+		error++;
+
+	}
+
+	@Override
+	public Path getFilesPath() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

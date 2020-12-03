@@ -1,12 +1,9 @@
 package InterfaceComUsuario;
 
-import java.awt.EventQueue;
-
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import java.awt.Color;
@@ -31,7 +28,6 @@ public class Enigma01 extends Enigma {
 	private void initialize() {
 		panel = new JPanel();
 		panel.setBounds(100, 100, 450, 348);
-		//JPanelsetDefaultCloseOperation(JPanelEXIT_ON_CLOSE);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Relacione as colunas considerando o seguinte esquema:");
@@ -91,11 +87,7 @@ public class Enigma01 extends Enigma {
 		dtrpnCO.setText("C = O carro \u00E9 caro\r\nQ = O carro esta quebrado\r\nR = O carro \u00E9 r\u00E1pido");
 		dtrpnCO.setBounds(20, 37, 259, 53);
 		panel.add(dtrpnCO);
-		/*
-		JScrollPane scroll_2 = new JScrollPane(dtrpnCO);
-		scroll_2.setBounds(20, 37, 259, 53);
-		panel.add(scroll_2);
-		 */
+		
 		JRadioButton rbtnLed = new JRadioButton("");
 		rbtnLed.setBounds(403, 7, 21, 23);
 		rbtnLed.setEnabled(false);

@@ -46,7 +46,7 @@ public class ModuloBomba extends Modulo {
 		frame.isMaximumSizeSet();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
-		addQtdAtivacoes();
+		qtdAtivacoes++;
 
 		// enigma01 = 0 enigma02 = 1 enigma03 = 2 enigma04 = 3 enigma05 = 4 engima06 = 5
 
