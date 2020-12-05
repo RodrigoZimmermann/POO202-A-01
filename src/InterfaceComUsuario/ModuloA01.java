@@ -57,16 +57,14 @@ public class ModuloA01 extends Modulo implements Serializable {
 		JButton salvar = new JButton("Salvar");
 		salvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				 JOptionPane.showMessageDialog(null,"Execuções: " + getExecutions(3) +" "
-				 + "Acertos: " + getRightAnswers(3) +" "+ "Erros: " + getWrongAnswers(3) +" "
-				  + "Está defusado: "+ isDefused());
-				 
-				 if(isDefused() == false) {
-					 bomba.addError();
-				 }
+				// CHAMAR A SERILIZAÇÃO
 			}
 		});
 		
+		
+		panel.setLayout(null);
+		btnNewButton.setBounds(150, 50, 165, 23);
+		panel.add(btnNewButton);
 		
 		panel.setLayout(null);
 		salvar.setBounds(54, 23, 165, 23);

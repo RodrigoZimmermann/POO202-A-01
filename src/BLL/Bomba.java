@@ -10,20 +10,20 @@ public class Bomba implements BombInterface {
 
 	@Override
 	public void addError() {
-		error++;
+		this.error++;
 	}
 
 	@Override
 	public Path getFilesPath() {
-		return path;
+		return this.path;
 	}
 	
 	public void setFilesPath(Path path) {
 		this.path = path;
 	}
 	
-	public void getError() {
-		error++;
+	public int getError() {
+		return this.error;
 	}
 
 }
