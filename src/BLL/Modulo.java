@@ -14,7 +14,7 @@ public class Modulo implements ModuleInterface {
 
 	protected int qtdAtivacoes = 0 ;
 	private Enigma enigma[] = new Enigma[6];
-	//private BombInterface b;
+	protected BombInterface bomba;
 	
 	public Modulo() {
 		enigma[0] = new Enigma01();
@@ -27,7 +27,7 @@ public class Modulo implements ModuleInterface {
 
 	@Override
 	public void attach(BombInterface arg0) {
-		//this.b = arg0;
+		this.bomba = arg0;
 	}
 
 	@Override
