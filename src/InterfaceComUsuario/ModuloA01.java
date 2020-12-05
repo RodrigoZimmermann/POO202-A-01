@@ -2,7 +2,14 @@ package InterfaceComUsuario;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,7 +40,6 @@ public class ModuloA01 extends Modulo implements Serializable {
 		qtdAtivacoes++;
 
 		// enigma01 = 0 enigma02 = 1 enigma03 = 2 enigma04 = 3 enigma05 = 4 engima06 = 5
-
 		
 		JButton btnNewButton = new JButton("Testar Estatisticas");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -48,24 +54,37 @@ public class ModuloA01 extends Modulo implements Serializable {
 			}
 		});
 		
+		JButton salvar = new JButton("Salvar");
+		salvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 JOptionPane.showMessageDialog(null,"Execuções: " + getExecutions(3) +" "
+				 + "Acertos: " + getRightAnswers(3) +" "+ "Erros: " + getWrongAnswers(3) +" "
+				  + "Está defusado: "+ isDefused());
+				 
+				 if(isDefused() == false) {
+					 bomba.addError();
+				 }
+			}
+		});
+		
+		
 		panel.setLayout(null);
-		btnNewButton.setBounds(54, 23, 165, 23);
-		panel.add(btnNewButton);
+		salvar.setBounds(54, 23, 165, 23);
+		panel.add(salvar);
 		
 		// Pegar o PANEL 
 		panel.add(getModulePanel(3));
 	}
 	
-	/*
 	// serialização: gravando o objetos no arquivo binário "nomeArq"
-    public static void gravarArquivoBinario(ArrayList<Object> lista, String nomeArq) {
+    public static void gravarArquivoBinario(ModuloA01 ModuloA01, String nomeArq) {
       File arq = new File(nomeArq);
       try {
         arq.delete();
         arq.createNewFile();
 
         ObjectOutputStream objOutput = new ObjectOutputStream(new FileOutputStream(arq));
-        objOutput.writeObject(lista);
+        objOutput.writeObject(ModuloA01);
         objOutput.close();
 
       } catch(IOException erro) {
@@ -92,5 +111,5 @@ public class ModuloA01 extends Modulo implements Serializable {
 
       return(lista);
     }
-    */
+ 
 }

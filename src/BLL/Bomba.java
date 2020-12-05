@@ -6,17 +6,24 @@ import poointerfaces.BombInterface;
 public class Bomba implements BombInterface {
 
 	private int error;
+	private Path path;
 
 	@Override
 	public void addError() {
 		error++;
-
 	}
 
 	@Override
 	public Path getFilesPath() {
-		// TODO Auto-generated method stub
-		return null;
+		return path;
+	}
+	
+	public void setFilesPath(Path path) {
+		this.path = path;
+	}
+	
+	public void getError() {
+		error++;
 	}
 
 }
