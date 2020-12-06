@@ -21,8 +21,8 @@ public class Enigma04 extends Enigma {
 	ArrayList<Boolean> resposta = new ArrayList();
 
 	public Enigma04() {
-		initialize();
 		this.addQtdUso();
+		initialize();
 	}
 
 	private void initialize() {

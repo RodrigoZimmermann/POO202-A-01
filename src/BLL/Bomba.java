@@ -17,7 +17,7 @@ public class Bomba implements BombInterface {
 	public Path getFilesPath() {
 		return this.path;
 	}
-	
+/*
 	public void setFilesPath(Path path) {
 		this.path = path;
 	}
@@ -25,5 +25,5 @@ public class Bomba implements BombInterface {
 	public int getError() {
 		return this.error;
 	}
-
+*/
 }

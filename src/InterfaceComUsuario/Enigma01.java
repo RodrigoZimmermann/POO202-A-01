@@ -21,8 +21,8 @@ public class Enigma01 extends Enigma {
 	 * Create the panel.
 	 */
 	public Enigma01() {
-		initialize();
 		this.addQtdUso();
+		initialize();
 	}
 	
 	private void initialize() {

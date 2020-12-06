@@ -19,8 +19,8 @@ public class Enigma06 extends Enigma {
 	private JTextField txtEpc; 
 	
 	public Enigma06() {
-		initialize();
 		this.addQtdUso();
+		initialize();
 	}
 
 	private void initialize() {

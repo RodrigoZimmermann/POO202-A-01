@@ -19,8 +19,8 @@ import BLL.Enigma;
 public class Enigma05 extends Enigma {
 
 	public Enigma05() {
-		initialize();
 		this.addQtdUso();
+		initialize();
 	}
 
 	private void initialize() {

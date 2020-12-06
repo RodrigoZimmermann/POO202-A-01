@@ -13,13 +13,10 @@ import BLL.Enigma;
 import BLL.Modulo;
 
 public class BombaInterface extends Bomba{
-
+/*
 	private JFrame frame;
 	private ModuloA01 modulo[] = new ModuloA01[1];
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,24 +30,19 @@ public class BombaInterface extends Bomba{
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public BombaInterface() {
 		modulo[0] = new ModuloA01();
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.getMaximumSize();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		modulo[0].attach(this);
-		frame.add(modulo[0].getPanel());
-		
+		frame.add(modulo[0].getModulePanel(0));
 	}
-
+*/
 }
