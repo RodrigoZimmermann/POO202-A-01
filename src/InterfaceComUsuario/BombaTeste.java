@@ -13,7 +13,7 @@ import BLL.Bomba;
 import BLL.Enigma;
 import BLL.ModuloA01;
 
-public class BombaInterface extends Bomba{
+public class BombaTeste extends Bomba{
 
 	private JFrame frame;
 	private ModuloA01 modulo[] = new ModuloA01[1];
@@ -22,7 +22,7 @@ public class BombaInterface extends Bomba{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BombaInterface window = new BombaInterface();
+					BombaTeste window = new BombaTeste();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,7 +32,7 @@ public class BombaInterface extends Bomba{
 	}
 
 
-	public BombaInterface() {
+	public BombaTeste() {
 		modulo[0] = new ModuloA01();
 		initialize();
 	}
