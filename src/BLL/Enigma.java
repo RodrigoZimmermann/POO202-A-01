@@ -2,6 +2,8 @@ package BLL;
 
 import javax.swing.JPanel;
 
+import poointerfaces.BombInterface;
+
 public class Enigma {
 
 	private int qtdUso;
@@ -9,6 +11,16 @@ public class Enigma {
 	private int qtdAcertos;
 	protected JPanel panel;
 	protected boolean defused = false;
+	protected BombInterface bomba;
+	protected ModuloA01 modulo;
+
+	public void attach(BombInterface arg0) {
+		this.bomba = arg0;
+	}
+
+	public void attachModulo(ModuloA01 arg0) {
+		this.modulo = arg0;
+	}
 
 	public int getQtdErros() {
 		return qtdErros;
@@ -37,7 +49,7 @@ public class Enigma {
 	public JPanel getPanel() {
 		return panel;
 	}
-	
+
 	public boolean getDefused() {
 		return defused;
 	}

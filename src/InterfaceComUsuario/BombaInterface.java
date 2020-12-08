@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
 
 import BLL.Bomba;
 import BLL.Enigma;
-import BLL.Modulo;
+import BLL.ModuloA01;
 
 public class BombaInterface extends Bomba{
-/*
+
 	private JFrame frame;
-	private ModuloA01 modulo[] = new ModuloA01[1];
+	private ModuloA01 modulo[] = new ModuloA01[0];
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -44,5 +44,5 @@ public class BombaInterface extends Bomba{
 		modulo[0].attach(this);
 		frame.add(modulo[0].getModulePanel(0));
 	}
-*/
+
 }

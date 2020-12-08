@@ -17,7 +17,7 @@ import javax.swing.JScrollPane;
 import BLL.Enigma;
 
 public class Enigma04 extends Enigma {
-	
+
 	ArrayList<Boolean> resposta = new ArrayList();
 
 	public Enigma04() {
@@ -26,12 +26,13 @@ public class Enigma04 extends Enigma {
 	}
 
 	private void initialize() {
-		panel = new JPanel();
-		panel.setBounds(100, 100, 350, 309);
+		JPanel panel = new JPanel();
+		this.panel = panel;
+		panel.setSize(350, 250);
 		panel.setLayout(null);
 
 		JEditorPane dtrpnSeisAmigosLucas = new JEditorPane();
-		dtrpnSeisAmigosLucas.setBounds(1, -41, 305, 216);
+		dtrpnSeisAmigosLucas.setBounds(10, 10, 278, 157);
 		dtrpnSeisAmigosLucas.setBackground(Color.LIGHT_GRAY);
 		dtrpnSeisAmigosLucas.setEditable(false);
 		dtrpnSeisAmigosLucas.setText(
@@ -39,23 +40,23 @@ public class Enigma04 extends Enigma {
 		panel.add(dtrpnSeisAmigosLucas);
 
 		JScrollPane scroll = new JScrollPane(dtrpnSeisAmigosLucas);
-		scroll.setBounds(10, 10, 294, 190);
+		scroll.setBounds(10, 10, 278, 157);
 		panel.add(scroll);
 
 		JComboBox cbNome = new JComboBox();
-		cbNome.setBounds(10, 211, 139, 20);
+		cbNome.setBounds(10, 178, 139, 20);
 		cbNome.setModel(new DefaultComboBoxModel(
-				new String[] { "1-Chico","2-Marcos", "3-Lucas","4-Djama" , "5-Ronaldo", "6-Roger" }));
+				new String[] { "1-Chico", "2-Marcos", "3-Lucas", "4-Djama", "5-Ronaldo", "6-Roger" }));
 		panel.add(cbNome);
 
 		JComboBox cbEsporte = new JComboBox();
-		cbEsporte.setBounds(169, 211, 137, 20);
+		cbEsporte.setBounds(169, 178, 137, 20);
 		cbEsporte.setModel(new DefaultComboBoxModel(new String[] { "1-T\u00EAnis", "2-Voleibol", "3-Basquete",
 				"4-T\u00EAnis de mesa", "5-Nata\u00E7\u00E3o", "6-Futebol" }));
 		panel.add(cbEsporte);
 
 		JButton btnRegistrar = new JButton("Registrar Resposta");
-		btnRegistrar.setBounds(10, 242, 197, 23);
+		btnRegistrar.setBounds(10, 209, 197, 23);
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (cbNome.getSelectedIndex() == 2 && cbEsporte.getSelectedIndex() == 1) {
@@ -98,27 +99,29 @@ public class Enigma04 extends Enigma {
 					setDefused(false);
 					btnSalvar.setEnabled(false);
 				} else {
-				for (int i = 0; i < resposta.size(); i++) {
-					if (resposta.get(i) == false) {
-						rbtnLed.setBackground(Color.red);
-						rbtnLed.setSelected(true);
-						addQtdErros();
-						setDefused(false);
-						errado = true;
-						break;
+					for (int i = 0; i < resposta.size(); i++) {
+						if (resposta.get(i) == false) {
+							rbtnLed.setBackground(Color.red);
+							rbtnLed.setSelected(true);
+							addQtdErros();
+							setDefused(false);
+							errado = true;
+							bomba.addError();
+							break;
+						}
 					}
+					if (!errado) {
+						rbtnLed.setBackground(Color.green);
+						rbtnLed.setSelected(true);
+						addQtdAcertos();
+						setDefused(true);
+					}
+					btnSalvar.setEnabled(false);
+					modulo.gravarModuloA01(modulo, bomba.getFilesPath());
 				}
-				if (!errado) {
-					rbtnLed.setBackground(Color.green);
-					rbtnLed.setSelected(true);
-					addQtdAcertos();
-					setDefused(true);
-				}
-				btnSalvar.setEnabled(false);
-			}
 			}
 		});
-		btnSalvar.setBounds(217, 242, 89, 23);
+		btnSalvar.setBounds(217, 209, 89, 23);
 		panel.add(btnSalvar);
 
 	}
