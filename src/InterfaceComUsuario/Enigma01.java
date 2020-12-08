@@ -11,6 +11,7 @@ import java.awt.Font;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -202,11 +203,21 @@ public class Enigma01 extends Enigma {
 					setDefused(true);
 				}
 				btnNewButton.setEnabled(false);
+				try {
+					modulo.gravarModuloA01(modulo, bomba.getFilesPath());
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			private void setLed() {
 				rbtnLed.setBackground(Color.red);
 				rbtnLed.setSelected(true);
+				bomba.addError();
 			}
 
 		});

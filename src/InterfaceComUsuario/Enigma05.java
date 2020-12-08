@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -104,7 +105,15 @@ public class Enigma05 extends Enigma {
 					bomba.addError();
 				}
 				btnNewButton.setEnabled(false);
-				modulo.gravarModuloA01(modulo, bomba.getFilesPath());
+				try {
+					modulo.gravarModuloA01(modulo, bomba.getFilesPath());
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		btnNewButton.setBounds(239, 116, 86, 23);

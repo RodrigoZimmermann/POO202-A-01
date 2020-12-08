@@ -6,7 +6,7 @@ import poointerfaces.BombInterface;
 public class Bomba implements BombInterface {
 
 	private int error;
-	private Path path;
+	protected Path path;
 
 	@Override
 	public void addError() {

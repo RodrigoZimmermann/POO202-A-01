@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -76,7 +77,7 @@ public class Enigma06 extends Enigma {
 
 		JButton btnNewButton = new JButton("SALVAR");
 		btnNewButton.setFont(new Font("Arial Black", Font.BOLD, 11));
-		btnNewButton.setBounds(192, 216, 89, 23);
+		btnNewButton.setBounds(192, 216, 111, 23);
 		panel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -93,7 +94,15 @@ public class Enigma06 extends Enigma {
 					bomba.addError();
 				}
 				btnNewButton.setEnabled(false);
-				modulo.gravarModuloA01(modulo, bomba.getFilesPath());
+				try {
+					modulo.gravarModuloA01(modulo, bomba.getFilesPath());
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 	}

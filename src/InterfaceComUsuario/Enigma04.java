@@ -3,6 +3,7 @@ package InterfaceComUsuario;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
@@ -117,7 +118,15 @@ public class Enigma04 extends Enigma {
 						setDefused(true);
 					}
 					btnSalvar.setEnabled(false);
-					modulo.gravarModuloA01(modulo, bomba.getFilesPath());
+					try {
+						modulo.gravarModuloA01(modulo, bomba.getFilesPath());
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
